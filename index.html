@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AngebotPro – Angebote & Rechnungen für Handwerker</title>
+  <meta name="description" content="Professionelle Angebote und Rechnungen in Minuten. Für Handwerker und Kleinunternehmer. Jetzt kostenlos testen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand-50:  #eef2ff;
+      --brand-100: #e0e7ff;
+      --brand-200: #c7d2fe;
+      --brand-400: #818cf8;
+      --brand-500: #6366f1;
+      --brand-600: #4f46e5;
+      --brand-700: #4338ca;
+      --brand-800: #3730a3;
+      --brand-900: #1e1b4b;
+      --gray-50:  #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --green-100: #d1fae5;
+      --green-500: #10b981;
+      --green-600: #059669;
+      --amber-100: #fef3c7;
+      --amber-500: #f59e0b;
+      --purple-100: #ede9fe;
+      --purple-600: #7c3aed;
+      --red-100:   #fee2e2;
+      --red-500:   #ef4444;
+      --cyan-100:  #cffafe;
+      --cyan-600:  #0891b2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--gray-900);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ── Utilities ─────────────────────────────────────────── */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .container-sm {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .text-center { text-align: center; }
+
+    /* ── Gradients ─────────────────────────────────────────── */
+    .bg-hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 45%, #4f46e5 100%);
+    }
+    .bg-dark { background: var(--brand-900); }
+    .bg-gray  { background: var(--gray-50); }
+    .bg-white { background: #fff; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #818cf8, #c7d2fe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 12px 24px;
+      border-radius: 12px;
+      transition: background 0.15s, color 0.15s, opacity 0.15s;
+      border: none;
+      text-align: center;
+    }
+    .btn-white   { background: #fff; color: var(--brand-700); }
+    .btn-white:hover { background: var(--brand-50); }
+    .btn-ghost   { background: rgba(255,255,255,0.12); color: #fff; border: 1.5px solid rgba(255,255,255,0.22); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+    .btn-brand   { background: var(--brand-600); color: #fff; }
+    .btn-brand:hover { background: var(--brand-700); }
+    .btn-outline { background: transparent; color: var(--brand-600); border: 2px solid var(--brand-600); }
+    .btn-outline:hover { background: var(--brand-50); }
+    .btn-lg      { padding: 14px 32px; font-size: 1rem; border-radius: 14px; }
+
+    /* ── Section spacing ──────────────────────────────────── */
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+
+    /* ── Typography ───────────────────────────────────────── */
+    .label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-600);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .heading-xl {
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .heading-lg {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+    .heading-md {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .body-lg  { font-size: 1.0625rem; line-height: 1.7; }
+    .body-sm  { font-size: 0.875rem; line-height: 1.65; }
+    .muted    { color: var(--gray-500); }
+    .muted-lt { color: rgba(255,255,255,0.65); }
+
+    /* ── Cards ────────────────────────────────────────────── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 20px;
+      padding: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
+    }
+    .icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── Grid ─────────────────────────────────────────────── */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .grid-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+
+    /* ── Navbar ───────────────────────────────────────────── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 0.25s, box-shadow 0.25s;
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      color: #fff;
+      font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em;
+    }
+    .nav-logo-icon {
+      width: 32px; height: 32px;
+      background: var(--brand-600);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+    }
+    .nav-link {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.875rem; font-weight: 500;
+      padding: 6px 12px; border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .lang-btn {
+      background: none; border: none; padding: 4px 8px;
+      color: rgba(255,255,255,0.6); font-size: 0.8125rem; font-weight: 600;
+      border-radius: 6px; transition: color 0.15s, background 0.15s;
+    }
+    .lang-btn:hover { color: #fff; background: rgba(255,255,255,0.1); }
+    .nav-login {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .nav-login:hover { color: #fff; }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      padding: 96px 0 80px;
+      display: flex; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      border-radius: 100px; padding: 6px 16px;
+      font-size: 0.8125rem; font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80; flex-shrink: 0;
+    }
+    .hero-title { color: #fff; margin-bottom: 20px; }
+    .hero-sub { margin-bottom: 32px; max-width: 480px; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+    .hero-note { color: rgba(255,255,255,0.45); font-size: 0.8125rem; }
+
+    /* ── App Mockup ───────────────────────────────────────── */
+    .mockup {
+      background: #13103a;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 48px 96px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .mockup-bar {
+      background: #0b0928;
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-url {
+      margin-left: 12px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 5px;
+      padding: 3px 12px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.6875rem;
+      font-family: monospace;
+    }
+    .mockup-body { display: flex; height: 340px; }
+    .mockup-side {
+      width: 50px; background: #0f0d2e;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 14px 0; gap: 10px; flex-shrink: 0;
+    }
+    .mockup-icon {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: rgba(99,102,241,0.2);
+    }
+    .mockup-icon.active { background: var(--brand-600); }
+    .mockup-main {
+      flex: 1; background: #f8fafc; padding: 14px; overflow: hidden;
+    }
+    .mockup-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    .mockup-stat {
+      background: #fff; border-radius: 8px; padding: 9px 11px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+    }
+    .mockup-stat-label { font-size: 7.5px; color: #6b7280; font-weight: 500; margin-bottom: 3px; }
+    .mockup-stat-val { font-size: 18px; font-weight: 800; color: #1e1b4b; line-height: 1; }
+    .mockup-stat-val.accent { color: var(--brand-600); }
+    .mockup-section-label {
+      font-size: 8px; font-weight: 700; color: #374151;
+      letter-spacing: 0.06em; margin-bottom: 5px; padding: 0 4px;
+    }
+    .mockup-row {
+      background: #fff; border-radius: 7px;
+      padding: 7px 11px;
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 4px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .mockup-dot-status { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .mockup-name { flex: 1; font-size: 8.5px; color: #111; font-weight: 500; }
+    .mockup-badge {
+      font-size: 7.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px;
+    }
+    .mockup-amount { font-size: 8.5px; font-weight: 700; color: #111; }
+    .mockup-chart {
+      background: #fff; border-radius: 8px; padding: 8px 11px; margin-top: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .mockup-chart-label { font-size: 7px; font-weight: 700; color: #9ca3af; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .mockup-bars { display: flex; align-items: flex-end; gap: 4px; height: 28px; }
+    .mockup-bar-item { flex: 1; border-radius: 2px; }
+
+    /* ── Strip ────────────────────────────────────────────── */
+    #strip { padding: 18px 0; background: var(--brand-900); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: center; gap: 8px 24px;
+    }
+    .strip-label { color: rgba(255,255,255,0.35); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+    .strip-item { color: rgba(255,255,255,0.65); font-size: 0.875rem; display: flex; align-items: center; gap: 6px; }
+    .strip-sep { color: rgba(255,255,255,0.18); }
+
+    /* ── Features ─────────────────────────────────────────── */
+    .section-header { margin-bottom: 56px; }
+    .section-header p.label { display: block; }
+
+    /* ── Steps ────────────────────────────────────────────── */
+    .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; position: relative; }
+    .step { text-align: center; }
+    .step-icon {
+      width: 64px; height: 64px;
+      background: var(--brand-600);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 12px 32px rgba(79,70,229,0.35);
+      position: relative; z-index: 1;
+    }
+    .step-num { font-size: 0.75rem; font-weight: 700; color: var(--brand-600); margin-bottom: 8px; }
+    .step-title { font-size: 1.1875rem; font-weight: 700; margin-bottom: 10px; }
+    .steps-connector {
+      position: absolute;
+      top: 32px; left: calc(16.5% + 32px); right: calc(16.5% + 32px);
+      height: 2px; background: var(--brand-200); z-index: 0;
+    }
+
+    /* ── Template previews ────────────────────────────────── */
+    .tpl-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .tpl-card {
+      border: 1.5px solid var(--gray-200);
+      border-radius: 16px; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tpl-card:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(79,70,229,0.12); }
+    .tpl-preview { background: var(--gray-50); padding: 14px; height: 150px; }
+    .tpl-doc {
+      background: #fff; height: 100%;
+      border-radius: 7px;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .tpl-info { padding: 14px 16px; }
+    .tpl-name { font-size: 0.9375rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px; }
+    .tpl-desc { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; }
+
+    /* PDF doc building blocks */
+    .doc-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 7px; }
+    .doc-bar { border-radius: 2px; }
+    .doc-rule { height: 1.5px; border-radius: 1px; margin-bottom: 7px; }
+    .doc-addr { display: flex; flex-direction: column; gap: 3px; margin-bottom: 7px; }
+    .doc-table { background: var(--gray-50); border-radius: 5px; padding: 5px 6px; }
+    .doc-trow { display: flex; justify-content: space-between; margin-bottom: 3px; }
+    .doc-trow:last-child { margin-bottom: 0; }
+
+    /* ── Pricing ──────────────────────────────────────────── */
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 0 auto; }
+    .pricing-card {
+      border-radius: 24px; padding: 36px;
+    }
+    .pricing-card.light { background: #fff; border: 1.5px solid var(--gray-200); }
+    .pricing-card.dark  { background: var(--brand-600); position: relative; overflow: hidden; box-shadow: 0 24px 56px rgba(79,70,229,0.35); }
+    .pricing-plan-name { font-size: 1.0625rem; font-weight: 700; margin-bottom: 4px; }
+    .pricing-price { font-size: 2.5rem; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+    .pricing-per { font-size: 0.9rem; font-weight: 400; }
+    .pricing-note { font-size: 0.8125rem; margin-top: 6px; margin-bottom: 24px; }
+    .pricing-cta { display: block; text-align: center; padding: 13px; border-radius: 12px; font-weight: 600; margin-bottom: 28px; transition: background 0.15s, opacity 0.15s; }
+    .pricing-feat-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .pricing-feat-list li { display: flex; align-items: center; gap: 10px; font-size: 0.875rem; }
+    .check { width: 16px; height: 16px; flex-shrink: 0; }
+    .pricing-badge {
+      position: absolute; top: 16px; right: 16px;
+      background: #fbbf24; color: #78350f;
+      font-size: 0.6875rem; font-weight: 800;
+      padding: 4px 10px; border-radius: 100px;
+    }
+
+    /* ── FAQ ──────────────────────────────────────────────── */
+    .faq-list { display: flex; flex-direction: column; gap: 10px; }
+    .faq-item { border: 1.5px solid var(--gray-200); border-radius: 14px; overflow: hidden; }
+    .faq-btn {
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px; background: none; border: none; text-align: left;
+      transition: background 0.15s;
+    }
+    .faq-btn:hover { background: var(--gray-50); }
+    .faq-question { font-size: 0.9375rem; font-weight: 600; color: var(--gray-900); padding-right: 16px; }
+    .faq-icon {
+      width: 22px; height: 22px; flex-shrink: 0;
+      color: var(--gray-400);
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-answer.open { max-height: 300px; }
+    .faq-answer-inner { padding: 0 24px 18px; font-size: 0.9rem; color: var(--gray-500); line-height: 1.7; }
+
+    /* ── CTA Banner ───────────────────────────────────────── */
+    #cta-banner { padding: 96px 0; }
+    .cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    #footer { padding: 40px 0; background: var(--brand-900); }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; }
+    .footer-logo-icon { width: 28px; height: 28px; background: var(--brand-600); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+    .footer-link { color: rgba(255,255,255,0.45); font-size: 0.875rem; transition: color 0.15s; }
+    .footer-link:hover { color: #fff; }
+    .footer-copy { color: rgba(255,255,255,0.4); font-size: 0.8125rem; display: flex; align-items: center; gap: 12px; }
+    .footer-lang {
+      background: none; border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.45); font-size: 0.75rem; font-weight: 600;
+      padding: 2px 8px; border-radius: 5px; transition: color 0.15s;
+    }
+    .footer-lang:hover { color: #fff; }
+
+    /* ── SVG icons ────────────────────────────────────────── */
+    .icon { display: block; }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .tpl-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .grid-hero { grid-template-columns: 1fr; }
+      .mockup-wrapper { display: none; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 40px; }
+      .steps-connector { display: none; }
+      .tpl-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-login { display: none; }
+    }
+    @media (max-width: 480px) {
+      .tpl-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════ NAVBAR -->
+<header id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        AngebotPro
+      </a>
+
+      <div class="nav-links">
+        <a href="#features" class="nav-link" data-i18n="nav.features">Features</a>
+        <a href="#pricing"  class="nav-link" data-i18n="nav.pricing">Preise</a>
+        <a href="#faq"      class="nav-link" data-i18n="nav.faq">FAQ</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+        <a href="https://service.angebotpro.com" class="nav-login" data-i18n="nav.login">Login</a>
+        <a href="https://service.angebotpro.com/register" class="btn btn-white" style="padding: 8px 18px; font-size: 0.875rem; border-radius: 10px;" data-i18n="nav.cta">Kostenlos starten</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════ HERO -->
+<section id="hero" class="bg-hero">
+  <div class="container">
+    <div class="grid-hero">
+
+      <div>
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span data-i18n="hero.badge">Für Handwerker & Kleinunternehmer</span>
+        </div>
+
+        <h1 class="heading-xl hero-title">
+          <span data-i18n="hero.h1a">Professionelle</span><br>
+          <span class="gradient-text" data-i18n="hero.h1b">Angebote & Rechnungen</span><br>
+          <span data-i18n="hero.h1c">in Minuten</span>
+        </h1>
+
+        <p class="body-lg muted-lt hero-sub" data-i18n="hero.sub">
+          Erstelle überzeugende Angebote, wandle sie in Rechnungen um und verfolge Zahlungen – alles an einem Ort. Speziell für Maler, Trockenbauer, Elektriker und andere Handwerksbetriebe.
+        </p>
+
+        <div class="hero-btns">
+          <a href="https://service.angebotpro.com/register" class="btn btn-white btn-lg" data-i18n="hero.cta1">Kostenlos testen</a>
+          <a href="https://service.angebotpro.com"          class="btn btn-ghost btn-lg" data-i18n="hero.cta2">Einloggen</a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note">Keine Kreditkarte nötig · Jederzeit kündbar</p>
+      </div>
+
+      <!-- Mockup -->
+      <div class="mockup-wrapper">
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#f87171;"></div>
+            <div class="mockup-dot" style="background:#fbbf24;"></div>
+            <div class="mockup-dot" style="background:#4ade80;"></div>
+            <div class="mockup-url">service.angebotpro.com</div>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-side">
+              <div class="mockup-icon active"></div>
+              <div class="mockup-icon"></div>
+              <div class="mockup-icon"></div>
+              <div class="mockup-icon"></div>
+              <div class="mockup-icon"></div>
+              <div class="mockup-icon"></div>
+            </div>
+            <div class="mockup-main">
+              <div class="mockup-stats">
+                <div class="mockup-stat">
+                  <div class="mockup-stat-label">Offene Angebote</div>
+                  <div class="mockup-stat-val">12</div>
+                </div>
+                <div class="mockup-stat">
+                  <div class="mockup-stat-label">Aufträge</div>
+                  <div class="mockup-stat-val">5</div>
+                </div>
+                <div class="mockup-stat">
+                  <div class="mockup-stat-label">Umsatz MTD</div>
+                  <div class="mockup-stat-val accent">8.4K</div>
+                </div>
+              </div>
+              <div class="mockup-section-label">ANGEBOTE</div>
+              <div class="mockup-row">
+                <div class="mockup-dot-status" style="background:#4f46e5;"></div>
+                <div class="mockup-name">Trockenbau Müller GmbH</div>
+                <div class="mockup-badge" style="background:#ede9fe;color:#5b21b6;">Angebot</div>
+                <div class="mockup-amount">€ 3.240</div>
+              </div>
+              <div class="mockup-row">
+                <div class="mockup-dot-status" style="background:#10b981;"></div>
+                <div class="mockup-name">Renovierung Bauer</div>
+                <div class="mockup-badge" style="background:#d1fae5;color:#065f46;">Auftrag</div>
+                <div class="mockup-amount">€ 1.890</div>
+              </div>
+              <div class="mockup-row">
+                <div class="mockup-dot-status" style="background:#10b981;"></div>
+                <div class="mockup-name">Malerbetrieb Koch</div>
+                <div class="mockup-badge" style="background:#d1fae5;color:#065f46;">Bezahlt</div>
+                <div class="mockup-amount">€ 760</div>
+              </div>
+              <div class="mockup-row">
+                <div class="mockup-dot-status" style="background:#f59e0b;"></div>
+                <div class="mockup-name">Elektro Schneider</div>
+                <div class="mockup-badge" style="background:#fef3c7;color:#92400e;">Offen</div>
+                <div class="mockup-amount">€ 2.105</div>
+              </div>
+              <div class="mockup-row">
+                <div class="mockup-dot-status" style="background:#4f46e5;"></div>
+                <div class="mockup-name">Sanitär Hoffmann</div>
+                <div class="mockup-badge" style="background:#ede9fe;color:#5b21b6;">Angebot</div>
+                <div class="mockup-amount">€ 4.820</div>
+              </div>
+              <div class="mockup-chart">
+                <div class="mockup-chart-label">UMSATZ LETZTE 6 MONATE</div>
+                <div class="mockup-bars">
+                  <div class="mockup-bar-item" style="height:38%;background:#c7d2fe;"></div>
+                  <div class="mockup-bar-item" style="height:55%;background:#c7d2fe;"></div>
+                  <div class="mockup-bar-item" style="height:47%;background:#c7d2fe;"></div>
+                  <div class="mockup-bar-item" style="height:72%;background:#818cf8;"></div>
+                  <div class="mockup-bar-item" style="height:83%;background:#818cf8;"></div>
+                  <div class="mockup-bar-item" style="height:100%;background:#4f46e5;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ STRIP -->
+<div id="strip">
+  <div class="container">
+    <div class="strip-inner">
+      <span class="strip-label" data-i18n="strip.label">Perfekt für</span>
+      <span class="strip-item">🪣 <span data-i18n="strip.maler">Maler & Lackierer</span></span>
+      <span class="strip-sep">·</span>
+      <span class="strip-item">🔧 <span data-i18n="strip.trockenbau">Trockenbauer</span></span>
+      <span class="strip-sep">·</span>
+      <span class="strip-item">⚡ <span data-i18n="strip.elektriker">Elektriker</span></span>
+      <span class="strip-sep">·</span>
+      <span class="strip-item">🔩 <span data-i18n="strip.sanitaer">Sanitär</span></span>
+      <span class="strip-sep">·</span>
+      <span class="strip-item">🪵 <span data-i18n="strip.tischler">Tischler</span></span>
+      <span class="strip-sep">·</span>
+      <span class="strip-item">🏗️ <span data-i18n="strip.andere">& mehr</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ FEATURES -->
+<section id="features" class="section bg-white">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label" data-i18n="features.label">Alles was du brauchst</span>
+      <h2 class="heading-lg" style="margin-bottom:16px;" data-i18n="features.h2">Von der Anfrage zur Zahlung – alles in einer App</h2>
+      <p class="body-lg muted" style="max-width:580px;margin:0 auto;" data-i18n="features.sub">
+        Kein Papierkram, keine komplizierten Buchhaltungsprogramme. Einfach, schnell und speziell für Handwerker.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon-wrap" style="background:#eef2ff;">
+          <svg width="24" height="24" fill="none" stroke="#4f46e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3 class="heading-md" style="margin-bottom:10px;" data-i18n="f1.title">Angebote & Aufträge</h3>
+        <p class="body-sm muted" data-i18n="f1.desc">Erstelle professionelle Angebote mit Positionen, Mengen und Einheitspreisen. Kunden können Angebote online direkt akzeptieren – ohne Anruf.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-wrap" style="background:#d1fae5;">
+          <svg width="24" height="24" fill="none" stroke="#059669" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+        </div>
+        <h3 class="heading-md" style="margin-bottom:10px;" data-i18n="f2.title">Rechnungen & Zahlungen</h3>
+        <p class="body-sm muted" data-i18n="f2.desc">Wandle Angebote mit einem Klick in Rechnungen um. Behalte den Überblick über offene, gemahnte und bezahlte Rechnungen – inklusive Mahnwesen.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-wrap" style="background:#ede9fe;">
+          <svg width="24" height="24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+          </svg>
+        </div>
+        <h3 class="heading-md" style="margin-bottom:10px;" data-i18n="f3.title">PDF-Vorlagen</h3>
+        <p class="body-sm muted" data-i18n="f3.desc">4 professionelle Layouts (Klassik, Modern, Minimal, Corporate) mit anpassbaren Farben, Schriften und deinem Firmenlogo.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-wrap" style="background:#fef3c7;">
+          <svg width="24" height="24" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <h3 class="heading-md" style="margin-bottom:10px;" data-i18n="f4.title">Kunden & Projekte</h3>
+        <p class="body-sm muted" data-i18n="f4.desc">Verwalte dein Adressbuch, verknüpfe Projekte mit Kunden, lade Baustellenfotos hoch und behalte alle Dokumente zusammen.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-wrap" style="background:#fee2e2;">
+          <svg width="24" height="24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <h3 class="heading-md" style="margin-bottom:10px;" data-i18n="f5.title">DATEV & Buchhaltungsexport</h3>
+        <p class="body-sm muted" data-i18n="f5.desc">Exportiere für DATEV oder als CSV für Excel und Lexoffice. ELSTER-Umsatzsteuerzahlen auf Knopfdruck.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon-wrap" style="background:#cffafe;">
+          <svg width="24" height="24" fill="none" stroke="#0891b2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+        </div>
+        <h3 class="heading-md" style="margin-bottom:10px;" data-i18n="f6.title">Wiederkehrende Rechnungen</h3>
+        <p class="body-sm muted" data-i18n="f6.desc">Monatlich, quartalsweise, jährlich – AngebotPro generiert sie automatisch. Ideal für Wartungsverträge und Daueraufträge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ HOW IT WORKS -->
+<section class="section bg-gray">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label" data-i18n="how.label">So funktioniert's</span>
+      <h2 class="heading-lg" data-i18n="how.h2">Drei Schritte vom Auftrag zur Zahlung</h2>
+    </div>
+
+    <div class="steps">
+      <div class="steps-connector"></div>
+
+      <div class="step">
+        <div class="step-icon">
+          <svg width="30" height="30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+        </div>
+        <div class="step-num" data-i18n="how.step1.num">Schritt 1</div>
+        <h3 class="step-title" data-i18n="how.step1.title">Angebot erstellen</h3>
+        <p class="body-sm muted" data-i18n="how.step1.desc">Wähle Positionen aus deinem Leistungskatalog, passe Mengen und Preise an und erstelle in Sekunden ein professionelles Angebot als PDF.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">
+          <svg width="30" height="30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="step-num" data-i18n="how.step2.num">Schritt 2</div>
+        <h3 class="step-title" data-i18n="how.step2.title">Kunde akzeptiert online</h3>
+        <p class="body-sm muted" data-i18n="how.step2.desc">Sende dem Kunden einen Link. Er sieht das Angebot im Browser und nimmt es mit einem Klick an – ohne Papier, ohne Unterschrift per Post.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-icon">
+          <svg width="30" height="30" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+          </svg>
+        </div>
+        <div class="step-num" data-i18n="how.step3.num">Schritt 3</div>
+        <h3 class="step-title" data-i18n="how.step3.title">Rechnung & Geld erhalten</h3>
+        <p class="body-sm muted" data-i18n="how.step3.desc">Konvertiere das Angebot in eine Rechnung, sende sie per E-Mail und behalte den Zahlungsstatus im Blick. Mahnungen mit einem Klick.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ PDF TEMPLATES -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label" data-i18n="tpl.label">PDF-Vorlagen</span>
+      <h2 class="heading-lg" style="margin-bottom:16px;" data-i18n="tpl.h2">Professionelles Auftreten — immer</h2>
+      <p class="body-lg muted" style="max-width:500px;margin:0 auto;" data-i18n="tpl.sub">4 Layouts, frei wählbare Farben und dein Logo. Jede Vorlage hinterlässt einen bleibenden Eindruck.</p>
+    </div>
+
+    <div class="tpl-grid">
+      <!-- Classic -->
+      <div class="tpl-card">
+        <div class="tpl-preview">
+          <div class="tpl-doc">
+            <div class="doc-row">
+              <div>
+                <div class="doc-bar" style="width:48px;height:6px;background:#4f46e5;margin-bottom:3px;"></div>
+                <div class="doc-bar" style="width:34px;height:3px;background:#e5e7eb;"></div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:8px;font-weight:800;color:#111;font-family:Inter,sans-serif;">ANGEBOT</div>
+                <div style="font-size:7px;color:#9ca3af;font-family:Inter,sans-serif;">Nr. 2024-001</div>
+              </div>
+            </div>
+            <div class="doc-rule" style="background:#4f46e5;"></div>
+            <div class="doc-addr">
+              <div class="doc-bar" style="width:56px;height:3.5px;background:#e5e7eb;"></div>
+              <div class="doc-bar" style="width:42px;height:3px;background:#f3f4f6;"></div>
+            </div>
+            <div class="doc-table">
+              <div class="doc-trow"><div class="doc-bar" style="width:58%;height:3px;background:#e5e7eb;"></div><div class="doc-bar" style="width:18%;height:3px;background:#e5e7eb;"></div></div>
+              <div class="doc-trow"><div class="doc-bar" style="width:52%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:16%;height:3px;background:#f3f4f6;"></div></div>
+              <div class="doc-trow"><div class="doc-bar" style="width:50%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:18%;height:3px;background:#f3f4f6;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tpl-info">
+          <div class="tpl-name" data-i18n="tpl.classic">Klassik</div>
+          <div class="tpl-desc" data-i18n="tpl.classic.desc">Klare Struktur, bewährtes Layout. Zeitlos professionell.</div>
+        </div>
+      </div>
+
+      <!-- Modern -->
+      <div class="tpl-card">
+        <div class="tpl-preview">
+          <div class="tpl-doc" style="padding:0;overflow:hidden;">
+            <div style="background:#4f46e5;padding:10px 10px 8px;display:flex;justify-content:space-between;align-items:center;">
+              <div>
+                <div class="doc-bar" style="width:40px;height:5px;background:rgba(255,255,255,0.8);margin-bottom:2px;"></div>
+                <div class="doc-bar" style="width:28px;height:3px;background:rgba(255,255,255,0.4);"></div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:8px;font-weight:800;color:#fff;font-family:Inter,sans-serif;">ANGEBOT</div>
+                <div style="font-size:7px;color:rgba(255,255,255,0.6);font-family:Inter,sans-serif;">Nr. 2024-001</div>
+              </div>
+            </div>
+            <div style="padding:8px 10px;">
+              <div class="doc-addr">
+                <div class="doc-bar" style="width:52px;height:3.5px;background:#e5e7eb;"></div>
+                <div class="doc-bar" style="width:38px;height:3px;background:#f3f4f6;"></div>
+              </div>
+              <div class="doc-table">
+                <div class="doc-trow"><div class="doc-bar" style="width:58%;height:3px;background:#dde4f0;"></div><div class="doc-bar" style="width:18%;height:3px;background:#dde4f0;"></div></div>
+                <div class="doc-trow"><div class="doc-bar" style="width:52%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:16%;height:3px;background:#f3f4f6;"></div></div>
+                <div class="doc-trow"><div class="doc-bar" style="width:50%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:18%;height:3px;background:#f3f4f6;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tpl-info">
+          <div class="tpl-name" data-i18n="tpl.modern">Modern</div>
+          <div class="tpl-desc" data-i18n="tpl.modern.desc">Farbiger Header-Block. Auffallend und zeitgemäß.</div>
+        </div>
+      </div>
+
+      <!-- Minimal -->
+      <div class="tpl-card">
+        <div class="tpl-preview">
+          <div class="tpl-doc">
+            <div class="doc-row" style="margin-bottom:5px;align-items:flex-end;">
+              <div>
+                <div class="doc-bar" style="width:48px;height:6px;background:#1f2937;margin-bottom:2px;"></div>
+                <div class="doc-bar" style="width:34px;height:3px;background:#e5e7eb;"></div>
+              </div>
+              <div style="font-size:7px;color:#9ca3af;font-weight:600;font-family:Inter,sans-serif;">ANGEBOT · 001</div>
+            </div>
+            <div class="doc-rule" style="background:#e5e7eb;height:0.75px;"></div>
+            <div class="doc-addr">
+              <div class="doc-bar" style="width:52px;height:3.5px;background:#e5e7eb;"></div>
+              <div class="doc-bar" style="width:38px;height:3px;background:#f3f4f6;"></div>
+            </div>
+            <div style="border-top:0.75px solid #f3f4f6;padding-top:6px;">
+              <div class="doc-trow"><div class="doc-bar" style="width:58%;height:3px;background:#e5e7eb;"></div><div class="doc-bar" style="width:18%;height:3px;background:#e5e7eb;"></div></div>
+              <div class="doc-trow"><div class="doc-bar" style="width:52%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:16%;height:3px;background:#f3f4f6;"></div></div>
+              <div class="doc-trow"><div class="doc-bar" style="width:48%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:18%;height:3px;background:#f3f4f6;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tpl-info">
+          <div class="tpl-name" data-i18n="tpl.minimal">Minimal</div>
+          <div class="tpl-desc" data-i18n="tpl.minimal.desc">Klare Linien, kein Schnickschnack. Fokus auf den Inhalt.</div>
+        </div>
+      </div>
+
+      <!-- Corporate -->
+      <div class="tpl-card">
+        <div class="tpl-preview">
+          <div class="tpl-doc">
+            <div style="display:flex;justify-content:space-between;margin-bottom:4px;align-items:flex-start;">
+              <div>
+                <div class="doc-bar" style="width:44px;height:5px;background:#1e1b4b;margin-bottom:2px;"></div>
+                <div class="doc-bar" style="width:30px;height:3px;background:#e5e7eb;"></div>
+              </div>
+              <div style="font-size:13px;font-weight:900;color:#4f46e5;letter-spacing:-0.5px;line-height:1;font-family:Inter,sans-serif;">ANGEBOT</div>
+            </div>
+            <div class="doc-rule" style="background:#4f46e5;height:3px;margin-bottom:7px;"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px;">
+              <div><div class="doc-bar" style="width:36px;height:3px;background:#e5e7eb;margin-bottom:2px;"></div><div class="doc-bar" style="width:28px;height:3px;background:#f3f4f6;"></div></div>
+              <div><div class="doc-bar" style="width:30px;height:3px;background:#e5e7eb;margin-bottom:2px;"></div><div class="doc-bar" style="width:24px;height:3px;background:#f3f4f6;"></div></div>
+            </div>
+            <div class="doc-table">
+              <div class="doc-trow"><div class="doc-bar" style="width:55%;height:3px;background:#e0e7ff;"></div><div class="doc-bar" style="width:18%;height:3px;background:#e0e7ff;"></div></div>
+              <div class="doc-trow"><div class="doc-bar" style="width:50%;height:3px;background:#f3f4f6;"></div><div class="doc-bar" style="width:16%;height:3px;background:#f3f4f6;"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tpl-info">
+          <div class="tpl-name" data-i18n="tpl.corporate">Corporate</div>
+          <div class="tpl-desc" data-i18n="tpl.corporate.desc">Gewichtiger Auftritt für größere Aufträge und B2B-Kunden.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:40px;">
+      <a href="https://service.angebotpro.com/register" class="btn btn-brand btn-lg" data-i18n="tpl.cta">
+        Vorlagen kostenlos ausprobieren
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ PRICING -->
+<section id="pricing" class="section bg-gray">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label" data-i18n="pricing.label">Preise</span>
+      <h2 class="heading-lg" style="margin-bottom:12px;" data-i18n="pricing.h2">Ein Plan. Alles inklusive.</h2>
+      <p class="body-lg muted" data-i18n="pricing.sub">Kein Kleingedrucktes. Alle Funktionen in einem Plan.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Monthly -->
+      <div class="pricing-card light">
+        <div class="pricing-plan-name" data-i18n="pricing.monthly.name">Monatlich</div>
+        <div style="margin-bottom:4px;">
+          <span class="pricing-price" data-i18n="pricing.monthly.price">€14,99</span>
+          <span class="pricing-per muted" data-i18n="pricing.monthly.per">/Monat</span>
+        </div>
+        <p class="pricing-note muted" data-i18n="pricing.monthly.note">Jederzeit kündbar</p>
+        <a href="https://service.angebotpro.com/register"
+          class="pricing-cta btn-outline" data-i18n="pricing.monthly.cta">Kostenlos testen</a>
+        <ul class="pricing-feat-list">
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.unlimited">Unbegrenzte Angebote & Rechnungen</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.clients">Kunden & Projekte</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.templates">PDF-Vorlagen mit eigenem Logo</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.datev">DATEV & CSV-Export</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.recurring">Wiederkehrende Rechnungen</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.email">E-Mail-Versand</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.accept">Online-Angebotsannahme</span></li>
+          <li><svg class="check" fill="none" stroke="#10b981" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.support">E-Mail-Support</span></li>
+        </ul>
+      </div>
+
+      <!-- Yearly -->
+      <div class="pricing-card dark">
+        <div class="pricing-badge" data-i18n="pricing.yearly.badge">17% sparen</div>
+        <div class="pricing-plan-name" style="color:#fff;" data-i18n="pricing.yearly.name">Jährlich</div>
+        <div style="margin-bottom:4px;">
+          <span class="pricing-price" style="color:#fff;" data-i18n="pricing.yearly.price">€149,99</span>
+          <span class="pricing-per" style="color:rgba(255,255,255,0.55);" data-i18n="pricing.yearly.per">/Jahr</span>
+        </div>
+        <p class="pricing-note" style="color:rgba(255,255,255,0.55);">
+          = <span data-i18n="pricing.yearly.equiv">€12,50/Monat</span> · 2 Monate gratis
+        </p>
+        <a href="https://service.angebotpro.com/register"
+          class="pricing-cta" style="background:#fff;color:#4338ca;" data-i18n="pricing.yearly.cta">Jetzt sparen & starten</a>
+        <ul class="pricing-feat-list" style="color:rgba(255,255,255,0.8);">
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.unlimited">Unbegrenzte Angebote & Rechnungen</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.clients">Kunden & Projekte</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.templates">PDF-Vorlagen mit eigenem Logo</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.datev">DATEV & CSV-Export</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.recurring">Wiederkehrende Rechnungen</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.email">E-Mail-Versand</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.accept">Online-Angebotsannahme</span></li>
+          <li><svg class="check" fill="none" stroke="#86efac" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="feat.support">E-Mail-Support</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="text-center muted body-sm" style="margin-top:28px;" data-i18n="pricing.trial">
+      Beide Pläne starten mit einer kostenlosen Testphase. Keine Kreditkarte nötig.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ FAQ -->
+<section id="faq" class="section bg-white">
+  <div class="container-sm">
+    <div class="section-header text-center">
+      <span class="label" data-i18n="faq.label">FAQ</span>
+      <h2 class="heading-lg" data-i18n="faq.h2">Häufige Fragen</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question" data-i18n="faq.q1">Ist eine Kreditkarte für den Test nötig?</span>
+          <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner" data-i18n="faq.a1">Nein. Du kannst AngebotPro kostenlos testen, ohne Kreditkartendaten anzugeben. Erst wenn du dich nach dem Test für ein Abo entscheidest, werden Zahlungsdaten benötigt.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question" data-i18n="faq.q2">Kann ich jederzeit kündigen?</span>
+          <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner" data-i18n="faq.a2">Ja. Beim monatlichen Plan kannst du monatlich kündigen. Beim Jahresplan läuft das Abo bis zum Ende der bezahlten Periode. Keine versteckten Gebühren.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question" data-i18n="faq.q3">Ist AngebotPro GoBD-konform?</span>
+          <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner" data-i18n="faq.a3">Die generierten Rechnungen entsprechen den Anforderungen des deutschen Umsatzsteuergesetzes (§14 UStG). Der DATEV-Export ermöglicht die direkte Weiterverarbeitung in deinem Steuerberaterprogramm.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question" data-i18n="faq.q4">Kann ich mein eigenes Logo und Farben verwenden?</span>
+          <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner" data-i18n="faq.a4">Ja. Lade dein Firmenlogo hoch und wähle deine Unternehmensfarben frei. Alle 4 PDF-Layouts passen sich automatisch an. Deine Dokumente sehen immer wie aus einem Guss aus.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question" data-i18n="faq.q5">Wie funktioniert die Online-Angebotsannahme?</span>
+          <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner" data-i18n="faq.a5">Jedes Angebot bekommt einen einzigartigen Link, den du per E-Mail oder WhatsApp an deinen Kunden sendest. Der Kunde öffnet den Link und kann das Angebot mit einem Klick annehmen oder ablehnen – ganz ohne Login.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-btn">
+          <span class="faq-question" data-i18n="faq.q6">Wo werden meine Daten gespeichert?</span>
+          <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner" data-i18n="faq.a6">Alle Daten werden sicher auf europäischen Servern (EU-West) gespeichert und sind vollständig DSGVO-konform. Jeder Nutzer sieht ausschließlich seine eigenen Daten – strikte Datentrennung ist technisch erzwungen.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ CTA BANNER -->
+<section id="cta-banner" class="bg-hero">
+  <div class="container text-center">
+    <h2 class="heading-lg" style="color:#fff;margin-bottom:16px;" data-i18n="cta.h2">Bereit, Schluss mit Papierkram zu machen?</h2>
+    <p class="body-lg muted-lt" data-i18n="cta.sub">Starte jetzt kostenlos. Keine Kreditkarte nötig.</p>
+    <div class="cta-btns">
+      <a href="https://service.angebotpro.com/register" class="btn btn-white btn-lg" data-i18n="cta.btn1">Kostenlos registrieren</a>
+      <a href="https://service.angebotpro.com"          class="btn btn-ghost btn-lg" data-i18n="cta.btn2">Bereits registriert? Einloggen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════ FOOTER -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        AngebotPro
+      </div>
+      <nav class="footer-links">
+        <a href="https://service.angebotpro.com"          class="footer-link" data-i18n="footer.login">Login</a>
+        <a href="https://service.angebotpro.com/register" class="footer-link" data-i18n="footer.register">Registrieren</a>
+        <a href="#features" class="footer-link" data-i18n="footer.features">Features</a>
+        <a href="#pricing"  class="footer-link" data-i18n="footer.pricing">Preise</a>
+        <a href="#"         class="footer-link" data-i18n="footer.imprint">Impressum</a>
+        <a href="#"         class="footer-link" data-i18n="footer.privacy">Datenschutz</a>
+      </nav>
+      <div class="footer-copy">
+        <span>© 2026 AngebotPro</span>
+        <button class="footer-lang" id="lang-btn-footer" onclick="toggleLang()">EN</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  de: {
+    'nav.features':'Features','nav.pricing':'Preise','nav.faq':'FAQ','nav.login':'Login','nav.cta':'Kostenlos starten',
+    'hero.badge':'Für Handwerker & Kleinunternehmer','hero.h1a':'Professionelle','hero.h1b':'Angebote & Rechnungen','hero.h1c':'in Minuten',
+    'hero.sub':'Erstelle überzeugende Angebote, wandle sie in Rechnungen um und verfolge Zahlungen – alles an einem Ort. Speziell für Maler, Trockenbauer, Elektriker und andere Handwerksbetriebe.',
+    'hero.cta1':'Kostenlos testen','hero.cta2':'Einloggen','hero.note':'Keine Kreditkarte nötig · Jederzeit kündbar',
+    'strip.label':'Perfekt für','strip.maler':'Maler & Lackierer','strip.trockenbau':'Trockenbauer','strip.elektriker':'Elektriker','strip.sanitaer':'Sanitär','strip.tischler':'Tischler','strip.andere':'& mehr',
+    'features.label':'Alles was du brauchst','features.h2':'Von der Anfrage zur Zahlung – alles in einer App','features.sub':'Kein Papierkram, keine komplizierten Buchhaltungsprogramme. Einfach, schnell und speziell für Handwerker.',
+    'f1.title':'Angebote & Aufträge','f1.desc':'Erstelle professionelle Angebote mit Positionen, Mengen und Einheitspreisen. Kunden können Angebote online direkt akzeptieren – ohne Anruf.',
+    'f2.title':'Rechnungen & Zahlungen','f2.desc':'Wandle Angebote mit einem Klick in Rechnungen um. Behalte den Überblick über offene, gemahnte und bezahlte Rechnungen – inklusive Mahnwesen.',
+    'f3.title':'PDF-Vorlagen','f3.desc':'4 professionelle Layouts (Klassik, Modern, Minimal, Corporate) mit anpassbaren Farben, Schriften und deinem Firmenlogo.',
+    'f4.title':'Kunden & Projekte','f4.desc':'Verwalte dein Adressbuch, verknüpfe Projekte mit Kunden, lade Baustellenfotos hoch und behalte alle Dokumente zusammen.',
+    'f5.title':'DATEV & Buchhaltungsexport','f5.desc':'Exportiere für DATEV oder als CSV für Excel und Lexoffice. ELSTER-Umsatzsteuerzahlen auf Knopfdruck.',
+    'f6.title':'Wiederkehrende Rechnungen','f6.desc':'Monatlich, quartalsweise, jährlich – AngebotPro generiert sie automatisch. Ideal für Wartungsverträge und Daueraufträge.',
+    'how.label':"So funktioniert's",'how.h2':'Drei Schritte vom Auftrag zur Zahlung',
+    'how.step1.num':'Schritt 1','how.step1.title':'Angebot erstellen','how.step1.desc':'Wähle Positionen aus deinem Leistungskatalog, passe Mengen und Preise an und erstelle in Sekunden ein professionelles Angebot als PDF.',
+    'how.step2.num':'Schritt 2','how.step2.title':'Kunde akzeptiert online','how.step2.desc':'Sende dem Kunden einen Link. Er sieht das Angebot im Browser und nimmt es mit einem Klick an – ohne Papier, ohne Unterschrift per Post.',
+    'how.step3.num':'Schritt 3','how.step3.title':'Rechnung & Geld erhalten','how.step3.desc':'Konvertiere das Angebot in eine Rechnung, sende sie per E-Mail und behalte den Zahlungsstatus im Blick. Mahnungen mit einem Klick.',
+    'tpl.label':'PDF-Vorlagen','tpl.h2':'Professionelles Auftreten — immer','tpl.sub':'4 Layouts, frei wählbare Farben und dein Logo. Jede Vorlage hinterlässt einen bleibenden Eindruck.',
+    'tpl.classic':'Klassik','tpl.classic.desc':'Klare Struktur, bewährtes Layout. Zeitlos professionell.',
+    'tpl.modern':'Modern','tpl.modern.desc':'Farbiger Header-Block. Auffallend und zeitgemäß.',
+    'tpl.minimal':'Minimal','tpl.minimal.desc':'Klare Linien, kein Schnickschnack. Fokus auf den Inhalt.',
+    'tpl.corporate':'Corporate','tpl.corporate.desc':'Gewichtiger Auftritt für größere Aufträge und B2B-Kunden.',
+    'tpl.cta':'Vorlagen kostenlos ausprobieren',
+    'pricing.label':'Preise','pricing.h2':'Ein Plan. Alles inklusive.','pricing.sub':'Kein Kleingedrucktes. Alle Funktionen in einem Plan.',
+    'pricing.monthly.name':'Monatlich','pricing.monthly.price':'€14,99','pricing.monthly.per':'/Monat','pricing.monthly.note':'Jederzeit kündbar','pricing.monthly.cta':'Kostenlos testen',
+    'pricing.yearly.badge':'17% sparen','pricing.yearly.name':'Jährlich','pricing.yearly.price':'€149,99','pricing.yearly.per':'/Jahr','pricing.yearly.equiv':'€12,50/Monat','pricing.yearly.cta':'Jetzt sparen & starten',
+    'pricing.trial':'Beide Pläne starten mit einer kostenlosen Testphase. Keine Kreditkarte nötig.',
+    'feat.unlimited':'Unbegrenzte Angebote & Rechnungen','feat.clients':'Kunden & Projekte','feat.templates':'PDF-Vorlagen mit eigenem Logo','feat.datev':'DATEV & CSV-Export','feat.recurring':'Wiederkehrende Rechnungen','feat.email':'E-Mail-Versand','feat.accept':'Online-Angebotsannahme','feat.support':'E-Mail-Support',
+    'faq.label':'FAQ','faq.h2':'Häufige Fragen',
+    'faq.q1':'Ist eine Kreditkarte für den Test nötig?','faq.a1':'Nein. Du kannst AngebotPro kostenlos testen, ohne Kreditkartendaten anzugeben. Erst wenn du dich nach dem Test für ein Abo entscheidest, werden Zahlungsdaten benötigt.',
+    'faq.q2':'Kann ich jederzeit kündigen?','faq.a2':'Ja. Beim monatlichen Plan kannst du monatlich kündigen. Beim Jahresplan läuft das Abo bis zum Ende der bezahlten Periode. Keine versteckten Gebühren.',
+    'faq.q3':'Ist AngebotPro GoBD-konform?','faq.a3':'Die generierten Rechnungen entsprechen den Anforderungen des deutschen Umsatzsteuergesetzes (§14 UStG). Der DATEV-Export ermöglicht die direkte Weiterverarbeitung in deinem Steuerberaterprogramm.',
+    'faq.q4':'Kann ich mein eigenes Logo und Farben verwenden?','faq.a4':'Ja. Lade dein Firmenlogo hoch und wähle deine Unternehmensfarben frei. Alle 4 PDF-Layouts passen sich automatisch an. Deine Dokumente sehen immer wie aus einem Guss aus.',
+    'faq.q5':'Wie funktioniert die Online-Angebotsannahme?','faq.a5':'Jedes Angebot bekommt einen einzigartigen Link, den du per E-Mail oder WhatsApp sendest. Der Kunde kann das Angebot mit einem Klick annehmen oder ablehnen – ganz ohne Login.',
+    'faq.q6':'Wo werden meine Daten gespeichert?','faq.a6':'Alle Daten werden sicher auf europäischen Servern (EU-West) gespeichert und sind vollständig DSGVO-konform. Jeder Nutzer sieht ausschließlich seine eigenen Daten.',
+    'cta.h2':'Bereit, Schluss mit Papierkram zu machen?','cta.sub':'Starte jetzt kostenlos. Keine Kreditkarte nötig.','cta.btn1':'Kostenlos registrieren','cta.btn2':'Bereits registriert? Einloggen',
+    'footer.login':'Login','footer.register':'Registrieren','footer.features':'Features','footer.pricing':'Preise','footer.imprint':'Impressum','footer.privacy':'Datenschutz'
+  },
+  en: {
+    'nav.features':'Features','nav.pricing':'Pricing','nav.faq':'FAQ','nav.login':'Login','nav.cta':'Start for free',
+    'hero.badge':'For tradespeople & small businesses','hero.h1a':'Professional','hero.h1b':'Quotes & Invoices','hero.h1c':'in minutes',
+    'hero.sub':'Create compelling quotes, convert them into invoices, and track payments — all in one place. Built for painters, drywall contractors, electricians, and other trades.',
+    'hero.cta1':'Start free trial','hero.cta2':'Log in','hero.note':'No credit card required · Cancel anytime',
+    'strip.label':'Perfect for','strip.maler':'Painters','strip.trockenbau':'Drywall contractors','strip.elektriker':'Electricians','strip.sanitaer':'Plumbers','strip.tischler':'Carpenters','strip.andere':'& more',
+    'features.label':'Everything you need','features.h2':'From quote to payment — all in one app','features.sub':'No paperwork, no complicated accounting software. Simple, fast, and built for tradespeople.',
+    'f1.title':'Quotes & Orders','f1.desc':'Create professional quotes with line items, quantities, and unit prices. Clients can accept quotes online with one click — no phone call needed.',
+    'f2.title':'Invoices & Payments','f2.desc':'Convert quotes into invoices with one click. Keep track of open, reminded, and paid invoices — with built-in payment reminders.',
+    'f3.title':'PDF Templates','f3.desc':'4 professional layouts (Classic, Modern, Minimal, Corporate) with customizable colors, fonts, and your company logo.',
+    'f4.title':'Clients & Projects','f4.desc':'Manage your address book, link projects to clients, upload site photos, and keep all documents for a project together.',
+    'f5.title':'DATEV & Accounting Export','f5.desc':'Export for DATEV or as CSV for Excel and Lexoffice. VAT figures for ELSTER at the push of a button.',
+    'f6.title':'Recurring Invoices','f6.desc':'Monthly, quarterly, yearly — AngebotPro generates them automatically. Ideal for maintenance contracts.',
+    'how.label':'How it works','how.h2':'Three steps from job to payment',
+    'how.step1.num':'Step 1','how.step1.title':'Create a quote','how.step1.desc':'Select items from your service catalog, adjust quantities and prices, and generate a professional PDF quote in seconds.',
+    'how.step2.num':'Step 2','how.step2.title':'Client accepts online','how.step2.desc':'Send the client a link. They view the quote in their browser and accept it with one click — no paper, no postal signature.',
+    'how.step3.num':'Step 3','how.step3.title':'Invoice & get paid','how.step3.desc':'Convert the quote into an invoice, send it by email, and track payment status. Send reminders with one click if needed.',
+    'tpl.label':'PDF Templates','tpl.h2':'Professional appearance — always','tpl.sub':'4 layouts, freely selectable colors, and your logo. Every template leaves a lasting impression.',
+    'tpl.classic':'Classic','tpl.classic.desc':'Clear structure, proven layout. Timelessly professional.',
+    'tpl.modern':'Modern','tpl.modern.desc':'Colored header band. Bold and contemporary.',
+    'tpl.minimal':'Minimal','tpl.minimal.desc':'Clean lines, no frills. Focus on the content.',
+    'tpl.corporate':'Corporate','tpl.corporate.desc':'Authoritative look for larger jobs and B2B clients.',
+    'tpl.cta':'Try templates for free',
+    'pricing.label':'Pricing','pricing.h2':'One plan. Everything included.','pricing.sub':'No fine print. All features in one plan.',
+    'pricing.monthly.name':'Monthly','pricing.monthly.price':'€14.99','pricing.monthly.per':'/month','pricing.monthly.note':'Cancel anytime','pricing.monthly.cta':'Start free trial',
+    'pricing.yearly.badge':'Save 17%','pricing.yearly.name':'Yearly','pricing.yearly.price':'€149.99','pricing.yearly.per':'/year','pricing.yearly.equiv':'€12.50/month','pricing.yearly.cta':'Save now & get started',
+    'pricing.trial':'Both plans start with a free trial. No credit card required.',
+    'feat.unlimited':'Unlimited quotes & invoices','feat.clients':'Clients & projects','feat.templates':'PDF templates with your logo','feat.datev':'DATEV & CSV export','feat.recurring':'Recurring invoices','feat.email':'Email sending','feat.accept':'Online quote acceptance','feat.support':'Email support',
+    'faq.label':'FAQ','faq.h2':'Frequently asked questions',
+    'faq.q1':'Is a credit card required for the trial?','faq.a1':'No. You can try AngebotPro for free without entering credit card details. Payment information is only required if you decide to subscribe after the trial.',
+    'faq.q2':'Can I cancel at any time?','faq.a2':'Yes. With the monthly plan you can cancel monthly. With the yearly plan, the subscription runs until the end of the paid period. No hidden fees.',
+    'faq.q3':'Are invoices legally compliant in Germany?','faq.a3':'Generated invoices meet the requirements of German VAT law (§14 UStG). The DATEV export enables direct processing in your tax advisor\'s software.',
+    'faq.q4':'Can I use my own logo and colors?','faq.a4':'Yes. Upload your company logo and choose your brand colors freely. All 4 PDF layouts adapt automatically. Your documents always look consistent.',
+    'faq.q5':'How does online quote acceptance work?','faq.a5':'Each quote gets a unique link you send by email or WhatsApp. The client opens the link and can accept or decline the quote with one click — no login required.',
+    'faq.q6':'Where is my data stored?','faq.a6':'All data is securely stored on European servers (EU-West) and is fully GDPR-compliant. Each user only sees their own data — strict separation is technically enforced.',
+    'cta.h2':'Ready to say goodbye to paperwork?','cta.sub':'Start free today. No credit card required.','cta.btn1':'Register for free','cta.btn2':'Already registered? Log in',
+    'footer.login':'Login','footer.register':'Register','footer.features':'Features','footer.pricing':'Pricing','footer.imprint':'Imprint','footer.privacy':'Privacy'
+  }
+}
+
+let lang = 'de'
+
+function applyLang(l) {
+  lang = l
+  const d = translations[l]
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n')
+    if (d[key] !== undefined) el.textContent = d[key]
+  })
+  document.documentElement.lang = l
+  var label = l === 'de' ? 'EN' : 'DE'
+  document.getElementById('lang-btn').textContent = label
+  document.getElementById('lang-btn-footer').textContent = label
+}
+
+function toggleLang() { applyLang(lang === 'de' ? 'en' : 'de') }
+
+// Navbar scroll
+var navbar = document.getElementById('navbar')
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 20) {
+    navbar.style.background = 'rgba(30,27,75,0.96)'
+    navbar.style.backdropFilter = 'blur(14px)'
+    navbar.style.webkitBackdropFilter = 'blur(14px)'
+    navbar.style.boxShadow = '0 1px 0 rgba(255,255,255,0.05)'
+  } else {
+    navbar.style.background = 'transparent'
+    navbar.style.backdropFilter = 'none'
+    navbar.style.webkitBackdropFilter = 'none'
+    navbar.style.boxShadow = 'none'
+  }
+}, { passive: true })
+
+// FAQ accordion
+document.querySelectorAll('.faq-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = btn.closest('.faq-item')
+    var answer = item.querySelector('.faq-answer')
+    var isOpen = item.classList.contains('open')
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open')
+      i.querySelector('.faq-answer').classList.remove('open')
+    })
+    if (!isOpen) {
+      item.classList.add('open')
+      answer.classList.add('open')
+    }
+  })
+})
+
+applyLang('de')
+</script>
+</body>
+</html>
