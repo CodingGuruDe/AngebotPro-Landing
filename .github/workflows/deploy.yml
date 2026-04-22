@@ -22,7 +22,11 @@ jobs:
           SSH_TARGET: ${{ secrets.SSH_TARGET_LANDING }}
         run: |
           sudo apt-get install -y sshpass
+          USER=$(echo "$SSH_USER" | tr -d '[:space:]')
+          HOST=$(echo "$SSH_HOST" | tr -d '[:space:]')
+          TARGET=$(echo "$SSH_TARGET" | tr -d '[:space:]')
+          PORT=$(echo "$SSH_PORT" | tr -d '[:space:]')
           sshpass -e rsync -rlgoDzvc --delete --mkpath \
-            -e "ssh -p $SSH_PORT -o StrictHostKeyChecking=no -o UpdateHostKeys=no" \
+            -e "ssh -p $PORT -o StrictHostKeyChecking=no -o UpdateHostKeys=no" \
             --exclude='.git*' --exclude='.github' \
-            ./ "$SSH_USER@$SSH_HOST:$SSH_TARGET"
+            ./ "$USER@$HOST:$TARGET"
